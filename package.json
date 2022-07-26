@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
+    "three": "^0.142.0",
+    "three-obj-mtl-loader": "^1.0.3",
     "vue": "^2.6.14"
   },
   "devDependencies": {
@@ -33,7 +35,9 @@
     "parserOptions": {
       "parser": "@babel/eslint-parser"
     },
-    "rules": {}
+    "rules": {
+      "semi": 1
+    }
   },
   "browserslist": [
     "> 1%",
