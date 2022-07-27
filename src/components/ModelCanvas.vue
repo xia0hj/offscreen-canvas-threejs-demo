@@ -57,10 +57,18 @@ export default {
       const offscreen = canvasRef.transferControlToOffscreen();
       const offscreenWorker = new OffscreenWorker();
       offscreenWorker.postMessage({
+        type: 'init',
         canvas: offscreen,
-        innerWidth: window.innerWidth,
-        innerHeight: window.innerHeight
+        initWidth: window.innerWidth,
+        initHeight: window.innerHeight
       }, [offscreen]);
+      window.addEventListener('resize', ()=>{
+        offscreenWorker.postMessage({
+          type: 'resize',
+          width: window.innerWidth,
+          height: window.innerHeight
+        });
+      });
     }
   }
 };
